@@ -12,12 +12,13 @@
   meta: reset_connection
 
 - name: OS setup | Copy example file
+  become: true
   copy:
     src: mongobackup.sh
     dest: /usr/local/bin
     mode: 0755
 
-- name: Schedule cron job to Backup MongoDB
+- name: OS setup | Schedule cron job to Backup MongoDB
   cron:
     name: Backup MongoDB everyday at midnight  
     minute: "0"
@@ -31,7 +32,7 @@
     port: '80'
     proto: tcp
 
-- name: OS setup | Open port 8111 (Web Server)
+- name: OS setup | Open port 8111 (Web Server Backend)
   become: true
   ansible.builtin.ufw:
     rule: allow

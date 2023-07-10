@@ -2,7 +2,7 @@
 
 # Configuration
 BACKUP_PATH="/data/backup"
-MONGO_CONTAINER_NAME="devops_test_task-mongo-1"
+MONGO_CONTAINER_NAME="devopstesttask-app-mongo_production-1"
 MONGO_DB_NAME="course-goals"
 MONGO_USER="root"
 MONGO_PASSWORD="example"
