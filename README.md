@@ -25,7 +25,7 @@ The playbook consists of three roles:
 - Installing Docker Engine and additional packages
 - Installing and configuring GitHub Actions Runner
 
-###How to run
+## How to run
 
 1. Set variables `gh_runner_config_url` and `gh_runner_config_token `  in **main.yml** in the root folder of repository.
    For more information: https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners
@@ -34,7 +34,7 @@ The playbook consists of three roles:
    **Please pay attention: Don`t use remote host Root user in configuration!**
 4. Open terminal and run command ```ansible-playbook -i hosts.ini main.yml```
 
-### Backup script
+## Backup script
 
 The `mongobackup.sh` script is located in the **roles/os_setup/files/** folder 
 The Bash backup script performs the following actions:
@@ -42,7 +42,7 @@ The Bash backup script performs the following actions:
 - The docker exec command to execute the `mongodump` utility in the MongoDB container
 - Removing backup files older than 7 days 
 
-#### Using variables:
+## Using variables:
 
 Variables are defined at the beginning of the script
 
