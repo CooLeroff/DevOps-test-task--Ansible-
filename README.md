@@ -12,7 +12,7 @@ This is a test task repository with using Ansible and Bash
 - Ansible (ver. < 6.4.0 )  
 - Ubuntu or Debian-based OS
 
-###Actions to be taken
+##Actions to be taken
 
 This playbook sets up the environment to perform the application build https://github.com/CooLeroff/DevOpsTestTask-App
 
