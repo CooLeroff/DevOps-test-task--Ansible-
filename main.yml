@@ -1,0 +1,9 @@
+- hosts: all
+  roles:
+    - role: os_setup
+    - role: docker_install
+    - role: runner_install
+      vars:
+        gh_runner_config_url: https://github.com/CooLeroff/DevOps_test_task
+        gh_runner_config_token: AF67MYRF2H2KX6MJBPIXWNDEVOZCG
+    - role: os_setup

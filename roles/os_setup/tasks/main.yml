@@ -1,0 +1,40 @@
+---
+- name: OS setup | Disable password prompt for sudoers
+  become: true
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%sudo'
+    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: OS setup | Reset ssh connection for apply previous step
+  meta: reset_connection
+
+- name: OS setup | Copy example file
+  copy:
+    src: mongobackup.sh
+    dest: /usr/local/bin
+    mode: 0755
+
+- name: Schedule cron job to Backup MongoDB
+  cron:
+    name: Backup MongoDB everyday at midnight  
+    minute: "0"
+    hour: "0"
+    job: "/usr/local/bin/mongobackup.sh"
+
+- name: OS setup | Open port 80 (Web Server)
+  become: true
+  ansible.builtin.ufw:
+    rule: allow
+    port: '80'
+    proto: tcp
+
+- name: OS setup | Open port 8111 (Web Server)
+  become: true
+  ansible.builtin.ufw:
+    rule: allow
+    port: '8111'
+    proto: tcp
+  
