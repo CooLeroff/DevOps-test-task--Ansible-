@@ -11,7 +11,7 @@
 - name: OS setup | Reset ssh connection for apply previous step
   meta: reset_connection
 
-- name: OS setup | Copy example file
+- name: OS setup | Copy script file
   become: true
   copy:
     src: mongobackup.sh
